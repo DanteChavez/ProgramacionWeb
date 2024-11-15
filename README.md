@@ -7,7 +7,7 @@ npm install mongodb
 ```
 
 ## Iniciar pagina web
-Para iniciar la pagina web, se debe posicionar en la carpeta principal, abrir la consola de comandos y esciribr
+Para iniciar la pagina web, se debe posicionar en la carpeta del proyecto, abrir la consola de comandos y escribir
 ```bash
 npm run dev
 ```
