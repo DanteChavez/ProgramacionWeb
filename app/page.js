@@ -3,19 +3,21 @@
 
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
+import Image from 'next/image'; // Importa el componente Image de Next.js
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <div className={styles.logo}>Logo</div>
+        <Image src="/inicio.png" alt="Logo" width={50} height={50} />
+        <div className={styles.logo}>Plataforma de recursos intercambiables</div>
         <nav className={styles.nav}>
-          <Link href="#">Products</Link>
-          <Link href="#">Solutions</Link>
-          <Link href="#">Community</Link>
-          <Link href="#">Resources</Link>
-          <Link href="#">Pricing</Link>
-          <Link href="#">Contact</Link>
+          <Link href="/materia">Materias</Link>
+          <Link href="#">Foros</Link>
+          <Link href="#">Cursos disponibles</Link>
+          <Link href="#">Materiales</Link>
+          <Link href="#">Sobre Nosotros</Link>
+          <Link href="#">Contactanos</Link>
           <Link href="/login" className={styles.button}>Iniciar sesión</Link>
           <Link href="/signup" className={styles.buttonBlack}>Crear cuenta</Link>
         </nav>
