@@ -1,17 +1,10 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
+Para este proyecto se usan node.js version 22.8.0, next.js version 15.0.3
 ## Getting Started
 
-First, run the development server:
+Para iniciar se debe tener instalado mongoDB en el computador, se hace con el comando
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install mongodb
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
