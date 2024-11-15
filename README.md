@@ -1,7 +1,7 @@
 ## Que debe tener instalado
 Para este proyecto se necesita como minimo node.js version 22.8.0, next.js version 15.0.3
 
-Ademas se debe tener instalado mongoDB en el computador, lo cual se hace con el comando
+Ademas se debe tener instalado mongoDB en el computador, y ademas instalar el paquete de mongodb para node, lo cual se hace con el comando
 ```bash
 npm install mongodb
 ```
