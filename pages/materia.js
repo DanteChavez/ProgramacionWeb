@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Materias = () => {
   const [materias, setMaterias] = useState([]);
@@ -29,14 +31,25 @@ const Materias = () => {
 
   return (
     <div style={styles.container}>
-      <header style={styles.header}>
-        <h1 style={styles.logo}>Logo</h1>
-        <nav style={styles.nav}>
-          {['Products', 'Solutions', 'Community', 'Resources', 'Pricing', 'Contact'].map(item => (
-            <a key={item} href="#" style={styles.navLink}>{item}</a>
-          ))}
-          <button style={styles.button}>Sign in</button>
-          <button style={styles.button}>Register</button>
+      <header className={styles.header}>
+        <a href="/">
+          <Image
+            src="/logo.png"
+            alt="Descripción de la imagen"
+            width={100}
+            height={50}
+          />
+        </a>
+        <div className={styles.logo}>Plataforma de Recursos Intercambiables</div>
+        <nav className={styles.nav}>
+          <Link href="#">Materiales</Link>
+          <Link href="#">Cursos</Link>
+          <Link href="#">Materias</Link>
+          <Link href="#">Sobre nosotros</Link>
+          <Link href="#">Contactanos</Link>
+          <Link href="#">Cuenta</Link>
+          <Link href="/login" className={styles.button}>Iniciar sesión</Link>
+          <Link href="/signup" className={styles.buttonBlack}>Crear cuenta</Link>
         </nav>
       </header>
       <main style={styles.main}>

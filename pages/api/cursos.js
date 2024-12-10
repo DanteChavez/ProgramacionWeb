@@ -25,8 +25,14 @@ export default async function handler(req, res) {
             const cursos = await collection.aggregate([
                 { $match: { nombremateria: curso } },
                 { $unwind: "$cursos" },
-                { $group: { _id: "$cursos.nombrecurso" } },
-                { $project: { "nombrecurso": "$_id", _id: 0 } }
+                {
+                    $project: {
+                        nombrecurso: "$cursos.nombrecurso",
+                        anio: "$cursos.anio",
+                        carrera: "$cursos.carrera",
+                        _id: 0
+                    }
+                }
             ]).toArray();
 
             res.status(200).json(cursos);
