@@ -1,34 +1,42 @@
-import { MongoClient } from 'mongodb';
+import { Pool } from 'pg';
+import jwt from 'jsonwebtoken';
 
-const uri = "mongodb://localhost:27017";
-const client = new MongoClient(uri);
-
-let db;
-
-async function connectToDatabase() {
-    if (!db) {
-        await client.connect();
-        console.log("Conectado a MongoDB");
-        db = client.db("admin");
-    }
-    return db;
-}
+const pool = new Pool({
+    user: 'postgres', // por defecto casi todo
+    host: '127.0.0.1',
+    database: 'web',
+    password: '12345', // que seguridad mas grande
+    port: 5432,
+});
+// La clave es tan secreta que hasta el editor no la puede mostrar
+const SECRET_KEY = '*****'; 
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         const { nombre, contr } = req.body;
-        /////console.log("Nombre: ", nombre, " Contrasena: ", contr);
-        try {
-            const database = await connectToDatabase();
-            const collection = database.collection("usuario");
 
-            const user = await collection.findOne({
-                $or: [{ correo: nombre }, { nombre: nombre }],
-                contrasena: contr
-            });
+        try {
+            const query = `
+                SELECT idusuario, permisos 
+                FROM usuarios 
+                WHERE (correo = $1 OR nombre = $1) AND contrasena = $2
+            `;
+            const values = [nombre, contr];
             
-            if (user) {
-                res.status(200).json({ success: true, isAdmin: user.permisos === "1" });
+            const result = await pool.query(query, values);
+            console.log(result)
+            if (result.rows.length > 0) {
+                const user = result.rows[0];
+
+                // Genera un token JWT con los datos del usuario
+                const token = jwt.sign(
+                    { id: user.idusuario, permisos: user.permisos },
+                    SECRET_KEY,
+                    { expiresIn: '1h' } // El token expira en 1 hora
+                );
+                //console.log(token.user);
+
+                res.status(200).json({ success: true, token });
             } else {
                 res.status(401).json({ success: false, error: "Credenciales incorrectas" });
             }

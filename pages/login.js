@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation'; // Para redirigir a otras páginas
 import Link from 'next/link';
 import styles from '../styles/Login.module.css';
+import Image from 'next/image';
 
 export default function Login() {
   const [nombre, setNombre] = useState('');
@@ -22,6 +23,7 @@ export default function Login() {
 
     try {
       // Realizar la solicitud a la API de login
+      console.log("Nombre: \t", nombre, "\nContraseña : \t ", contrasena)
       const response = await fetch('/api/login', {
         method: 'POST',
         headers: {
@@ -32,9 +34,10 @@ export default function Login() {
 
       // Obtener los datos de la respuesta
       const data = await response.json();
-
+      
       if (response.ok) {
         // Si el login es exitoso, redirige a /materia
+        localStorage.setItem('token', data.token);
         router.push('/materia');
       } else {
         // Si hay un error, muestra el mensaje
@@ -49,7 +52,14 @@ export default function Login() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <div className={styles.logo}>Logo</div>
+      <a href="/">
+  <Image
+    src="/logo.png"
+    alt="Descripción de la imagen"
+    width={100}
+    height={50}
+  />
+</a>
         <nav className={styles.nav}>
           <Link href="#">Products</Link>
           <Link href="#">Solutions</Link>

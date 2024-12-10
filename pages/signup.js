@@ -2,12 +2,19 @@
 
 import Link from 'next/link';
 import styles from '../styles/Signup.module.css';
-
+import Image from 'next/image';
 export default function Signup() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <div className={styles.logo}>Logo</div>
+      <a href="/">
+        <Image
+          src="/logo.png"
+          alt="Descripción de la imagen"
+          width={100}
+          height={50}
+        />
+      </a>
         <nav className={styles.nav}>
           <Link href="#">Products</Link>
           <Link href="#">Solutions</Link>
