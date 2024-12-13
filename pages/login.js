@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation'; // Para redirigir a otras páginas
 import Link from 'next/link';
 import styles from '../styles/Login.module.css';
 import Image from 'next/image';
+import Navbar from '../components/Navbar';
+
 
 export default function Login() {
   const [nombre, setNombre] = useState('');
@@ -51,25 +53,7 @@ export default function Login() {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-      <a href="/">
-  <Image
-    src="/logo.png"
-    alt="Descripción de la imagen"
-    width={100}
-    height={50}
-  />
-</a>
-        <nav className={styles.nav}>
-          <Link href="#">Products</Link>
-          <Link href="#">Solutions</Link>
-          <Link href="#">Community</Link>
-          <Link href="#">Resources</Link>
-          <Link href="#">Pricing</Link>
-          <Link href="/login" className={styles.button}>Iniciar sesión</Link>
-          <Link href="/signup" className={styles.buttonBlack}>Crear cuenta</Link>
-        </nav>
-      </header>
+      <Navbar />
       <main className={styles.main}>
         <h1>Iniciar sesión</h1>
         <form className={styles.form} onSubmit={handleLogin}>

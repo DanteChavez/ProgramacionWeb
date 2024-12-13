@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from '../styles/Signup.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
+import Navbar from '../components/Navbar';
 
 export default function Signup() {
   const [formData, setFormData] = useState({ nombre: '', correo: '', contrasena: '' });
@@ -47,26 +48,7 @@ export default function Signup() {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <a href="/">
-          <Image
-            src="/logo.png"
-            alt="Descripción de la imagen"
-            width={100}
-            height={50}
-          />
-        </a>
-        <nav className={styles.nav}>
-          <Link href="#">Products</Link>
-          <Link href="#">Solutions</Link>
-          <Link href="#">Community</Link>
-          <Link href="#">Resources</Link>
-          <Link href="#">Pricing</Link>
-          <Link href="#">Contact</Link>
-          <Link href="/login" className={styles.button}>Iniciar sesión</Link>
-          <Link href="/signup" className={styles.buttonBlack}>Crear cuenta</Link>
-        </nav>
-      </header>
+      <Navbar />
       <main className={styles.main}>
         <h1>Crear cuenta</h1>
         <form className={styles.form} onSubmit={handleSubmit}>

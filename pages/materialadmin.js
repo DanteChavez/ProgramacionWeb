@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import Navbar from '../components/Navbar';
 
 const Material = () => {
   const [materiales, setMateriales] = useState([]);
@@ -169,30 +170,7 @@ const Material = () => {
 
   return (
     <div style={styles.container}>
-      <header style={styles.header}>
-      <a href="/">
-        <Image
-          src="/logo.png"
-          alt="Descripción de la imagen"
-          width={100}
-          height={50}
-        />
-      </a>
-        <nav style={styles.nav}>
-          <Link href="#">Materiales</Link>
-          <Link href="#">Cursos</Link>
-          <Link href="#">Materias</Link>
-          <Link href="#">Sobre nosotros</Link>
-          <Link href="#">Contactanos</Link>
-          <Link href="#">Cuenta</Link>
-          <Link href="/login" style={styles.button}>
-            Iniciar sesión
-          </Link>
-          <Link href="/signup" style={styles.buttonBlack}>
-            Crear cuenta
-          </Link>
-        </nav>
-      </header>
+      <Navbar />
       <main style={styles.main}>
       <button style={styles.uploadButton} onClick={() => setShowModal(true)}>
           Subir Archivo

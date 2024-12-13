@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
+import Navbar from '../components/Navbar';
 
 const Materias = () => {
   const [materias, setMaterias] = useState([]);
@@ -31,27 +32,7 @@ const Materias = () => {
 
   return (
     <div style={styles.container}>
-      <header className={styles.header}>
-        <a href="/">
-          <Image
-            src="/logo.png"
-            alt="Descripción de la imagen"
-            width={100}
-            height={50}
-          />
-        </a>
-        <div className={styles.logo}>Plataforma de Recursos Intercambiables</div>
-        <nav className={styles.nav}>
-          <Link href="#">Materiales</Link>
-          <Link href="#">Cursos</Link>
-          <Link href="#">Materias</Link>
-          <Link href="#">Sobre nosotros</Link>
-          <Link href="#">Contactanos</Link>
-          <Link href="#">Cuenta</Link>
-          <Link href="/login" className={styles.button}>Iniciar sesión</Link>
-          <Link href="/signup" className={styles.buttonBlack}>Crear cuenta</Link>
-        </nav>
-      </header>
+      <Navbar />
       <main style={styles.main}>
         <h2 style={styles.title}>Materias</h2>
         <section style={styles.section}>
