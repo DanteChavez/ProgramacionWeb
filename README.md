@@ -9,10 +9,12 @@ npm install formidable
 npm install path
 npm install googleapis
 npm install jsonwebtoken
+npm install pg
+
 ```
 O se puede hacer de manera rapida con el siguiente comando
 ```bash
-npm install mongodb formidable path googleapis jsonwebtoken
+npm install mongodb formidable path googleapis jsonwebtoken pg
 
 ```
 
