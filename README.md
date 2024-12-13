@@ -1,12 +1,16 @@
 ## Que debe tener instalado
 Para este proyecto se necesita como minimo node.js version 22.8.0, next.js version 15.0.3
 
-Ademas se debe tener instalado mongoDB en el computador, y ademas instalar el paquete de mongodb para node, lo cual se hace con el comando
+Ademas se debe tener instalado mongoDB y PostgreSQL en el computador para las bases de datos.Despues debe importar los usuarios a PostgreSQL y los materiales a mongoDB
+Por ultimo debe instalar los siguientes paquetes de node.
 ```bash
 npm install mongodb
+npm install formidable
+npm install path
+npm install googleapis
+npm install jsonwebtoken
 ```
 
-## Iniciar pagina web
 Para iniciar la pagina web, se debe posicionar en la carpeta del proyecto, abrir la consola de comandos y escribir
 ```bash
 npm run dev
